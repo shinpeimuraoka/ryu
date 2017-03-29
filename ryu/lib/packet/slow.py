@@ -145,7 +145,9 @@ class lacp(packet_base.PacketBase):
 
     Terminator information uses a length value of 0 (0x00).
 
-    NOTE--The use of a Terminator_Length of 0 is intentional.
+    .. Note::
+
+          The use of a Terminator_Length of 0 is intentional.
           In TLV encoding schemes it is common practice
           for the terminator encoding to be 0 both
           for the type and the length.
@@ -159,32 +161,20 @@ class lacp(packet_base.PacketBase):
     | EXPR | DFLT | DIST | CLCT | SYNC | AGGR | TMO  | ACT  |
     +------+------+------+------+------+------+------+------+
 
-    ACT
-        bit 0.
-        about the activity control value with regard to this link.
-    TMO
-        bit 1.
-        about the timeout control value with regard to this link.
-    AGGR
-        bit 2.
-        about how the system regards this link from the point of view
-        of the aggregation.
-    SYNC
-        bit 3.
-        about how the system regards this link from the point of view
-        of the synchronization.
-    CLCT
-        bit 4.
-        about collecting of incoming frames.
-    DIST
-        bit 5.
-        about distributing of outgoing frames.
-    DFLT
-        bit 6.
-        about the opposite system information which the system use.
-    EXPR
-        bit 7.
-        about the expire state of the system.
+    ==== ======== ===========================================================
+    Bit  Status   Description
+    ==== ======== ===========================================================
+    0    ACT      About the activity control value with regard to this link.
+    1    TMO      About the timeout control value with regard to this link.
+    2    AGGR     About how the system regards this link from the point of
+                  view of the aggregation.
+    3    SYNC     About how the system regards this link from the point of
+                  view of the synchronization.
+    4    CLCT     About collecting of incoming frames.
+    5    DIST     About distributing of outgoing frames.
+    6    DFLT     About the opposite system information which the system use.
+    7    EXPR     About the expire state of the system.
+    ==== ======== ===========================================================
 
     An instance has the following attributes at least.
     Most of them are same to the on-wire counterparts but in host byte
