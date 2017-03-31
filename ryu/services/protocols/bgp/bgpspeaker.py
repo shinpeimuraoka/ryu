@@ -635,8 +635,6 @@ class BGPSpeaker(object):
 
         ``vni`` specifies an Virtual Network Identifier for VXLAN
         or Virtual Subnet Identifier for NVGRE.
-        If tunnel_type is not TUNNEL_TYPE_VXLAN or TUNNEL_TYPE_NVGRE,
-        this field is ignored.
 
         ``next_hop`` specifies the next hop address for this prefix.
 
@@ -694,6 +692,9 @@ class BGPSpeaker(object):
             # Set tunnel type specific arguments
             if tunnel_type in [TUNNEL_TYPE_VXLAN, TUNNEL_TYPE_NVGRE]:
                 kwargs[EVPN_VNI] = vni
+            elif tunnel_type is not None:
+                raise ValueError('Unsupported tunnel type: %s' %
+                                 tunnel_type)
         elif route_type == EVPN_MULTICAST_ETAG_ROUTE:
             kwargs.update({
                 EVPN_ETHERNET_TAG_ID: ethernet_tag_id,
@@ -702,6 +703,9 @@ class BGPSpeaker(object):
             # Set tunnel type specific arguments
             if tunnel_type in [TUNNEL_TYPE_VXLAN, TUNNEL_TYPE_NVGRE]:
                 kwargs[EVPN_VNI] = vni
+            elif tunnel_type is not None:
+                raise ValueError('Unsupported tunnel type: %s' %
+                                 tunnel_type)
             # Set PMSI Tunnel Attribute arguments
             if pmsi_tunnel_type in [
                     PMSI_TYPE_NO_TUNNEL_INFO,
@@ -725,6 +729,9 @@ class BGPSpeaker(object):
             # Set tunnel type specific arguments
             if tunnel_type in [TUNNEL_TYPE_VXLAN, TUNNEL_TYPE_NVGRE]:
                 kwargs[EVPN_VNI] = vni
+            elif tunnel_type is not None:
+                raise ValueError('Unsupported tunnel type: %s' %
+                                 tunnel_type)
         else:
             raise ValueError('Unsupported EVPN route type: %s' % route_type)
 
