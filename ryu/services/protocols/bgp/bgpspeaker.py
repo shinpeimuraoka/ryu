@@ -921,14 +921,16 @@ class BGPSpeaker(object):
         This parameter must be a list of string.
 
         ``route_family`` specifies route family of the VRF.
-        This parameter must be RF_VPN_V4, RF_VPN_V6 or RF_L2_EVPN.
+        This parameter must be RF_VPN_V4, RF_VPN_V6, RF_L2_EVPN
+        or RF_VPNV4_FLOWSPEC.
 
         ``multi_exit_disc`` specifies multi exit discriminator (MED) value.
         It must be an integer.
         """
 
         assert route_family in SUPPORTED_VRF_RF,\
-            'route_family must be RF_VPN_V4, RF_VPN_V6 or RF_L2_EVPN'
+            'route_family must be RF_VPN_V4, RF_VPN_V6 RF_L2_EVPN' \
+            'or RF_VPNV4_FLOWSPEC'
 
         vrf = {
             vrfs.ROUTE_DISTINGUISHER: route_dist,
