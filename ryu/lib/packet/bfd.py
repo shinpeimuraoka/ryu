@@ -16,8 +16,9 @@
 """
 BFD Control packet parser/serializer
 
-RFC 5880
-BFD Control packet format
+[RFC 5880] BFD Control packet format
+
+::
 
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -35,10 +36,12 @@ BFD Control packet format
    |                 Required Min Echo RX Interval                 |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-   An optional Authentication Section MAY be present in the following
-   format of types:
+An optional Authentication Section MAY be present in the following
+format of types:
 
-   1. Format of Simple Password Authentication Section
+1. Format of Simple Password Authentication Section
+
+::
 
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -48,7 +51,9 @@ BFD Control packet format
    |                              ...                              |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-   2. Format of Keyed MD5 and Meticulous Keyed MD5 Authentication Section
+2. Format of Keyed MD5 and Meticulous Keyed MD5 Authentication Section
+
+::
 
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -62,7 +67,9 @@ BFD Control packet format
    |                              ...                              |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-   3. Format of Keyed SHA1 and Meticulous Keyed SHA1 Authentication Section
+3. Format of Keyed SHA1 and Meticulous Keyed SHA1 Authentication Section
+
+::
 
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
